@@ -1,0 +1,40 @@
+---
+title: "Week3 assignement"
+author: "Amirhossein Vahidi"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: ioslides_presentation
+
+---
+## Investigating the influence of weight on mpg
+
+```{r mtcars, echo=FALSE}
+head(mtcars)
+```
+## Considering cycle and Power
+- As you can see with increasing the weight the mpg increases
+- Number of cycle and weight are correlated 
+
+```{r library, include=FALSE}
+library(plotly)
+```
+```{r plot1, echo=FALSE,message = FALSE,warning =FALSE}
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", 
+        color = ~factor(cyl), size = ~hp)
+```
+
+##  Considering displacement and Power
+- Power and weight are not correlated 
+
+```{r plot2, echo=FALSE,message = FALSE,warning =FALSE}
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", color = ~hp, size = ~disp)
+```
+
+##  Considering transmission system 
+- There is a correlation between transmission system  and weight
+- Automatic transmission system has lower mpg
+```{r plot3, echo=FALSE,message = FALSE,warning =FALSE}
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", color = ~factor(am), size = ~hp)
+```
+
+## Thank you
+
